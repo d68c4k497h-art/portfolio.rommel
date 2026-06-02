@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rommel A. Santillan — IT Professional</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1a1a2e;
+    --ink-light: #3a3a5c;
+    --muted: #7a7a9a;
+    --accent: #2563c4;
+    --accent-soft: #e8effc;
+    --teal: #0e7c6e;
+    --teal-soft: #e0f4f1;
+    --cream: #f9f7f2;
+    --white: #ffffff;
+    --border: rgba(26,26,46,0.1);
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'DM Sans', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--ink);
+    color: white;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header-bg-pattern {
+    position: absolute; inset: 0;
+    background-image:
+      radial-gradient(circle at 80% 20%, rgba(37,99,196,0.35) 0%, transparent 50%),
+      radial-gradient(circle at 10% 80%, rgba(14,124,110,0.25) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .header-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 72px 40px 64px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .header-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    font-family: var(--serif);
+    font-size: clamp(38px, 6vw, 60px);
+    font-weight: 400;
+    line-height: 1.1;
+    color: white;
+    margin-bottom: 6px;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: #7ea8f5;
+  }
+
+  .header-subtitle {
+    font-size: 16px;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 32px;
+    font-weight: 300;
+    letter-spacing: 0.02em;
+  }
+
+  .header-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .chip {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.75);
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 400;
+  }
+
+  .header-contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 36px;
+    padding-top: 36px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+  }
+
+  .contact-item svg { opacity: 0.5; flex-shrink: 0; }
+
+  /* ── MAIN ── */
+  main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 40px;
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 48px;
+    align-items: start;
+  }
+
+  /* ── SECTION HEADINGS ── */
+  .section-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  h2 {
+    font-family: var(--serif);
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 4px;
+    line-height: 1.2;
+  }
+
+  /* ── SUMMARY ── */
+  .summary p {
+    font-size: 15px;
+    color: var(--ink-light);
+    line-height: 1.75;
+    margin-bottom: 1em;
+  }
+
+  /* ── EXPERIENCE ── */
+  .experience { margin-top: 48px; }
+
+  .job {
+    display: grid;
+    grid-template-columns: 2px 1fr;
+    gap: 0 24px;
+    margin-bottom: 36px;
+    position: relative;
+  }
+
+  .job-line {
+    width: 2px;
+    background: var(--border);
+    border-radius: 2px;
+    position: relative;
+  }
+
+  .job-line::before {
+    content: '';
+    position: absolute;
+    top: 5px; left: -4px;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--white);
+    border: 2px solid var(--accent);
+  }
+
+  .job-content { padding-bottom: 8px; }
+
+  .job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-bottom: 2px;
+  }
+
+  .job-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .job-date {
+    font-size: 12px;
+    color: var(--muted);
+    white-space: nowrap;
+    padding-top: 2px;
+  }
+
+  .job-company {
+    font-size: 13px;
+    color: var(--teal);
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+
+  .job-bullets {
+    list-style: none;
+    padding: 0;
+  }
+
+  .job-bullets li {
+    font-size: 13.5px;
+    color: var(--ink-light);
+    padding-left: 14px;
+    position: relative;
+    margin-bottom: 5px;
+    line-height: 1.55;
+  }
+
+  .job-bullets li::before {
+    content: '·';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 18px;
+    line-height: 1.1;
+  }
+
+  /* ── SIDEBAR ── */
+  .sidebar { position: sticky; top: 32px; }
+
+  .sidebar-section {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px;
+    margin-bottom: 20px;
+  }
+
+  .sidebar-section h3 {
+    font-family: var(--serif);
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 16px;
+  }
+
+  /* ── SKILLS ── */
+  .skill-group { margin-bottom: 14px; }
+  .skill-group:last-child { margin-bottom: 0; }
+
+  .skill-group-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .skill-tag {
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-weight: 400;
+  }
+
+  .skill-tag.tech {
+    background: var(--accent-soft);
+    color: var(--accent);
+  }
+
+  .skill-tag.tool {
+    background: var(--teal-soft);
+    color: var(--teal);
+  }
+
+  .skill-tag.soft {
+    background: #f3f0fb;
+    color: #5b3fa8;
+  }
+
+  /* ── EDUCATION ── */
+  .edu-degree {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.3;
+    margin-bottom: 4px;
+  }
+
+  .edu-school {
+    font-size: 12.5px;
+    color: var(--teal);
+    margin-bottom: 2px;
+  }
+
+  .edu-year {
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  /* ── CERTS ── */
+  .cert-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  .cert-item:last-child { margin-bottom: 0; }
+
+  .cert-dot {
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 5px;
+  }
+
+  .cert-text {
+    font-size: 12.5px;
+    color: var(--ink-light);
+    line-height: 1.45;
+  }
+
+  .cert-year {
+    display: block;
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 1px;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 680px) {
+    main {
+      grid-template-columns: 1fr;
+      padding: 40px 24px;
+    }
+    .header-inner { padding: 48px 24px 40px; }
+    .sidebar { position: static; }
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .header-inner { animation: fadeUp 0.6s ease both; }
+  .summary { animation: fadeUp 0.6s 0.1s ease both; }
+  .experience { animation: fadeUp 0.6s 0.2s ease both; }
+  .sidebar { animation: fadeUp 0.6s 0.3s ease both; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-bg-pattern"></div>
+  <div class="header-inner">
+    <span class="header-tag">Portfolio &amp; Resume</span>
+    <h1>Rommel <em>Abella</em><br>Santillan</h1>
+    <p class="header-subtitle">Information Technology Professional &nbsp;·&nbsp; Pangasinan, Philippines</p>
+    <div class="header-chips">
+      <span class="chip">Virtual Assistant</span>
+      <span class="chip">Data Encoder</span>
+      <span class="chip">Data Analyst</span>
+      <span class="chip">IT Support</span>
+      <span class="chip">Document Control</span>
+    </div>
+    <div class="header-contact">
+      <span class="contact-item">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16v16H4z" rx="2"/><path d="M4 8l8 5 8-5"/></svg>
+        Santillanrommelabella@gmail.com
+      </span>
+      <span class="contact-item">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.18 1.18 2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.16 6.16l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        +63 949 647 8470
+      </span>
+      <span class="contact-item">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 010 20M2 12h20"/></svg>
+        San Pascual, Burgos, Pangasinan
+      </span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- LEFT COLUMN -->
+  <div>
+    <!-- Summary -->
+    <section class="summary">
+      <div class="section-label">About</div>
+      <h2>5+ years bridging IT and operations</h2>
+      <p style="margin-top:16px;">
+        Detail-oriented IT graduate with a proven track record across data encoding, Electronic Medical Records management, document control, and digital content moderation. Comfortable in both technical and administrative environments — from hospital data terminals to municipal risk-reduction campaigns.
+      </p>
+      <p>
+        Driven by a data-first mindset: I don't just manage records, I use them to identify patterns, improve processes, and communicate findings clearly to stakeholders.
+      </p>
+    </section>
+
+    <!-- Experience -->
+    <section class="experience">
+      <div class="section-label">Experience</div>
+
+      <div class="job">
+        <div class="job-line"></div>
+        <div class="job-content">
+          <div class="job-header">
+            <span class="job-title">Administrative Aide</span>
+            <span class="job-date">Jan 2026 – Present</span>
+          </div>
+          <div class="job-company">MDRRMO LGU Burgos · Burgos, Pangasinan</div>
+          <ul class="job-bullets">
+            <li>Manage digital content and graphics for official LGU and MDRRMO social media platforms.</li>
+            <li>Apply data analysis tools to identify, assess, and manage localized hazards and environmental risks.</li>
+            <li>Formulate cost-effective risk reduction strategies from data findings and communicate them to the public.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="job-line"></div>
+        <div class="job-content">
+          <div class="job-header">
+            <span class="job-title">IT Personnel / Data Encoder</span>
+            <span class="job-date">Oct 2023 – Dec 2025</span>
+          </div>
+          <div class="job-company">Bolinao Community Hospital · Bolinao, Pangasinan</div>
+          <ul class="job-bullets">
+            <li>Encoded and verified sensitive personal and medical data for hundreds of patients daily.</li>
+            <li>Managed and tracked daily MAIP digital forms and patient files.</li>
+            <li>Administered EMR databases ensuring data integrity, privacy compliance, and seamless retrieval.</li>
+            <li>Provided technical support and system maintenance for hospital data terminals.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="job-line"></div>
+        <div class="job-content">
+          <div class="job-header">
+            <span class="job-title">Administrative Aide</span>
+            <span class="job-date">Jul 2022 – Sep 2023</span>
+          </div>
+          <div class="job-company">MDRRMO LGU Burgos · Burgos, Pangasinan</div>
+          <ul class="job-bullets">
+            <li>Coordinated local data collection to identify and evaluate environmental and community risk factors.</li>
+            <li>Created digital assets using Canva and Photoshop to communicate safety metrics to the public.</li>
+            <li>Maintained digital records of incident reports and strategy implementations for stakeholders.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="job-line"></div>
+        <div class="job-content">
+          <div class="job-header">
+            <span class="job-title">Document Controller / IT Specialist</span>
+            <span class="job-date">May 2018 – Mar 2020</span>
+          </div>
+          <div class="job-company">Robros Inc. · Rockwell, Makati City</div>
+          <ul class="job-bullets">
+            <li>Enforced quality control and data management protocols for corporate documentation.</li>
+            <li>Digitized and archived large volumes of RFAs, utility filings, and official letters.</li>
+            <li>Monitored document tracking lifecycles for real-time status visibility for project managers.</li>
+            <li>Maintained and troubleshot corporate hardware including terminals and network printers.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="job-line"></div>
+        <div class="job-content">
+          <div class="job-header">
+            <span class="job-title">IT & Inventory Management Intern</span>
+            <span class="job-date">Sep 2016 – Feb 2017</span>
+          </div>
+          <div class="job-company">Mitsubishi Motor Plaza, Inc. · Calasiao, Pangasinan</div>
+          <ul class="job-bullets">
+            <li>Managed digital inventory tracking for automotive tools and parts.</li>
+            <li>Processed and audit-checked digital financial receipts and transaction logs.</li>
+            <li>Performed routine hardware maintenance and software updates on company computers.</li>
+          </ul>
+        </div>
+      </div>
+
+    </section>
+  </div>
+
+  <!-- RIGHT SIDEBAR -->
+  <aside class="sidebar">
+
+    <!-- Skills -->
+    <div class="sidebar-section">
+      <h3>Skills</h3>
+      <div class="skill-group">
+        <div class="skill-group-label">Technical</div>
+        <div class="skill-tags">
+          <span class="skill-tag tech">EMR Management</span>
+          <span class="skill-tag tech">Data Encoding</span>
+          <span class="skill-tag tech">Database Maintenance</span>
+          <span class="skill-tag tech">IT Support</span>
+          <span class="skill-tag tech">Basic Networking</span>
+        </div>
+      </div>
+      <div class="skill-group" style="margin-top:14px;">
+        <div class="skill-group-label">Tools & Software</div>
+        <div class="skill-tags">
+          <span class="skill-tag tool">MS Office</span>
+          <span class="skill-tag tool">Google Workspace</span>
+          <span class="skill-tag tool">Canva</span>
+          <span class="skill-tag tool">Adobe Photoshop</span>
+          <span class="skill-tag tool">Lark</span>
+          <span class="skill-tag tool">AI Tools</span>
+        </div>
+      </div>
+      <div class="skill-group" style="margin-top:14px;">
+        <div class="skill-group-label">Soft Skills</div>
+        <div class="skill-tags">
+          <span class="skill-tag soft">Critical Thinking</span>
+          <span class="skill-tag soft">Problem Solving</span>
+          <span class="skill-tag soft">Task Prioritization</span>
+          <span class="skill-tag soft">Adaptability</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Education -->
+    <div class="sidebar-section">
+      <h3>Education</h3>
+      <div class="edu-degree">BS Information Technology</div>
+      <div class="edu-school">AMA Computer College – Dagupan City</div>
+      <div class="edu-year">2014 – 2017</div>
+    </div>
+
+    <!-- Certifications -->
+    <div class="sidebar-section">
+      <h3>Certifications</h3>
+
+      <div class="cert-item">
+        <div class="cert-dot"></div>
+        <div class="cert-text">Civil Service Professional Eligibility<span class="cert-year">Passed March 2023</span></div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-dot"></div>
+        <div class="cert-text">Certificate of Proficiency in Lark<span class="cert-year">October 2020</span></div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-dot"></div>
+        <div class="cert-text">SERVIO Virtual Team User Certification<span class="cert-year">October 2020</span></div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-dot"></div>
+        <div class="cert-text">Standard First Aid & Basic Life Support<span class="cert-year">August 2022</span></div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-dot"></div>
+        <div class="cert-text">Basic Military Course – Class 06-2022<span class="cert-year">October 2022</span></div>
+      </div>
+    </div>
+
+  </aside>
+</main>
+
+</body>
+</html>
